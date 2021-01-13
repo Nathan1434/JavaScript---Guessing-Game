@@ -8,4 +8,4 @@ It also contains a history component where you can see previous guesses, and a s
 
 Enjoy!
 
-[Check out a live demo at this link!](www.guessing-game-demo.netlify.app)
+[Check out a live demo at this link!](https://guessing-game-demo.netlify.app/)
