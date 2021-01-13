@@ -18,11 +18,11 @@ const new_game_div = document.querySelector('.btn-new');
 // Functions
 function setupEventListeners() {
     userNumber_Input.addEventListener('keypress', (event) => {
-        if (isPlaying) {
+        if (_isPlaying) {
             if (event.key === 'Enter') {
                 setTimeout(() => {
-                    userNum = parseInt(userNumber_Input.value);
-                    compare(userNum, computerNumber);
+                    _userNum = parseInt(userNumber_Input.value);
+                    compare(_userNum, _computerNumber);
                     userNumber_Input.value = '';
                     userNumber_Input.focus();
                 }, 50);
@@ -31,10 +31,10 @@ function setupEventListeners() {
     });
 
     input_Btn.addEventListener('click', () => {
-        if (isPlaying) {
+        if (_isPlaying) {
             setTimeout(() => {
-                userNum = parseInt(userNumber_Input.value);
-                compare(userNum, computerNumber);
+                _userNum = parseInt(userNumber_Input.value);
+                compare(_userNum, _computerNumber);
                 userNumber_Input.value = '';
                 userNumber_Input.focus();
             }, 50);
@@ -56,7 +56,7 @@ function compare(userNumber, compNumber) {
         attempt++;
         addHistory();
     } else if (userNumber === compNumber) {
-        isPlaying = false;
+        _isPlaying = false;
         compNumber_div.innerHTML = compNumber;
         attempt_div.innerText = `You got it right. It took ${attempt} tr${attempt == 1 ? 'y' : 'ies'}.`;
         hisContainer.classList.add('history__hidden');
@@ -66,7 +66,7 @@ function compare(userNumber, compNumber) {
 
 function addHistory() {
     // 1. Add history element
-    let previousEntry = `<p class="history-p" id="history-${attempt}">${userNum} - ${attempt_div.innerText}</p>`;
+    let previousEntry = `<p class="history-p" id="history-${attempt}">${_userNum} - ${attempt_div.innerText}</p>`;
     history_div.insertAdjacentHTML('beforeend', previousEntry);
 
     // 2. Scroll history element into view
@@ -76,7 +76,7 @@ function addHistory() {
         () => {
             setTimeout(() => {
                 document.getElementById(`history-${attempt}`).scrollIntoView({behavior: 'smooth'});
-            }, 250);
+            }, 450);
         },
         {root: mainDiv, threshold: 1}
     );
@@ -103,8 +103,8 @@ function toggleHistory() {
 }
 
 function startGame() {
-    computerNumber = Math.round(Math.random() * 100) + 1;
-    isPlaying = true;
+    _computerNumber = Math.round(Math.random() * 100) + 1;
+    _isPlaying = true;
     attempt = 0;
 
     userNumber_Input.value = '';
@@ -120,8 +120,8 @@ function startGame() {
 }
 
 //Variables
-let userNum, computerNumber;
-let isPlaying = true;
+let _userNum, _computerNumber;
+let _isPlaying = true;
 let attempt;
 
 // Game Start
