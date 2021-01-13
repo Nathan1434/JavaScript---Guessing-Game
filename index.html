@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="https://fonts.googleapis.com/css2?family=Asap&family=Poppins&family=Ubuntu&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="./style.css" />
+        <script src="./script.js" defer></script>
+
+        <title>Guessing Game</title>
+    </head>
+    <body>
+        <div class="main">
+            <header>
+                <h1>Guessing Game</h1>
+            </header>
+
+            <div class="intro">
+                <p>Try to guess the number</p>
+            </div>
+
+            <div class="screen">
+                <div id="comp-number">???</div>
+                <input type="number" id="user-number" placeholder="Enter a number(1-100)" />
+                <button class="input-btn">ENTER</button>
+            </div>
+
+            <div class="history--container history__hidden">
+                <div class="history--btn"><</div>
+                <div class="history">
+                    <h4><u>Previous Attempts</u></h4>
+                </div>
+            </div>
+
+            <div class="result"></div>
+
+            <div class="btn-new">New Game</div>
+        </div>
+    </body>
+</html>
